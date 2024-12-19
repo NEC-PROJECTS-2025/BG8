@@ -1,0 +1,262 @@
+/* General Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100%; /* Ensure full height */
+}
+
+/* Apply background image and overlay to the body */
+body {
+    background-image: url('https://americanhealthimaging.com/wp-content/uploads/2017/05/How-a-Chest-CT-Scan-Helps-Your-Doctor-Diagnose-Lung-Symptoms-scaled.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    position: relative;
+}
+
+/* Green overlay applied only to homepage */
+body.home::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000vh;
+    height: 1000vh;
+    background-color: rgba(0, 200, 0, 0.6); /* Green transparent overlay */
+    z-index: -1; /* Overlay should stay behind content */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: rgba(0, 200, 0, 0.6); /* Transparent green overlay */
+    color: #fff;
+    background-blend-mode: overlay;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #00c800;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Navbar Styles */
+header {
+    background-color: #333;
+    padding: 15px 0; /* Reduced height */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Reduced width */
+    margin: auto;
+    height: auto; /* Navbar height adjustment */
+}
+
+.logo {
+    color: #fff;
+    font-size: 20px; /* Reduced font size */
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 15px; /* Reduced spacing */
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    color: #28a745; /* Success Green */
+    font-weight: bold;
+}
+.overview {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.overview h2 {
+  font-size: 2.5em;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.overview p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  color: white;
+}
+
+.stats, .symptoms {
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
+.symptoms ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.symptoms ul li {
+  background: #333;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+  display: inline-block;
+}
+
+/* Prediction Container */
+.prediction-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    margin: 50px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* File Upload Styling */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: gray;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#file-upload {
+    display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.drop-area {
+    border: 2px dashed #3498db;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.drop-area.drag-over {
+    background-color: #d1e7ff;
+    border-color: #3498db;
+}
+.file-name-display {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+    word-wrap: break-word;
+}
+.drop-area {
+    border: 2px dashed #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.drop-area.drag-over {
+    background-color: #f0f8ff;
+    border-color: #00aaff;
+}
+
+.drop-area p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+#preview-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+#preview-image.hidden {
+    display: none;
+}
+
+.custom-file-upload {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+/* General Button Styles */
+.btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+   
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}

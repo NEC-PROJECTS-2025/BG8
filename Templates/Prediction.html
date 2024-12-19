@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction - Lung Cancer Detection</title>
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Lung Cancer Detection</h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="prediction" class="active">Prediction</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="prediction-container">
+            <h1>Predict Lung Cancer</h1>
+            <p>Upload a CT scan image (JPG, JPEG, PNG, MHD, or RAW) to predict lung cancer.</p>
+  <div id="drop-area" class="drop-area">
+                <p>Drag & Drop your file here or click to select</p>
+                <img id="preview-image" src="" alt="Image Preview" class="hidden">
+            </div>
+
+            <!-- Display Uploaded File Name -->
+            <div id="file-name-display" class="file-name-display"></div>
+
+            <!-- File Upload Form -->
+            <form id="upload-form" enctype="multipart/form-data">
+                <input type="file" id="file-upload" name="file" accept=".jpg, .jpeg, .png, .mhd, .raw" required hidden>
+                <button type="submit" class="btn">Predict</button>
+            </form>
+        <div id="result-box" class="result-box">
+                <p id="result-message"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lung Cancer Detection. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to External JavaScript -->
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('upload-form');
+    const fileInput = document.getElementById('file-upload');
+    const dropArea = document.getElementById('drop-area');
+    const resultMessage = document.getElementById('result-message');
+    const previewImage = document.getElementById('preview-image');
+    const fileNameDisplay = document.getElementById('file-name-display');
+
+    // Highlight drop area when file is dragged over it
+    dropArea.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropArea.classList.add('drag-over');
+    });
+
+    dropArea.addEventListener('dragleave', () => {
+        dropArea.classList.remove('drag-over');
+    });
+
+    dropArea.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropArea.classList.remove('drag-over');
+        
+        const files = event.dataTransfer.files;
+        if (files.length) {
+            fileInput.files = files;
+            displayFileName(files[0].name);
+            showImagePreview(files[0]);
+        }
+    });
+
+    dropArea.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (event) => {
+        const files = event.target.files;
+        if (files.length) {
+            displayFileName(files[0].name);
+            showImagePreview(files[0]);
+        }
+    });
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent form refresh
+
+        if (!fileInput.files.length) {
+            resultMessage.textContent = 'Please select a file before submitting.';
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        resultMessage.textContent = 'Processing... Please wait.';
+
+        try {
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error('Prediction failed.');
+            }
+
+            const data = await response.json();
+            resultMessage.textContent = `Prediction: ${data.label} (Confidence: ${data.confidence}%)`;
+        } catch (error) {
+            resultMessage.textContent = `Error: ${error.message}`;
+        }
+    });
+
+    function showImagePreview(file) {
+        if (!file.type.startsWith('image/')) {
+            resultMessage.textContent = 'Please upload a valid image file.';
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            previewImage.src = event.target.result;
+            previewImage.classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function displayFileName(fileName) {
+        // Truncate file name if it's too long
+        const maxLength = 25;
+        const truncatedFileName = fileName.length > maxLength 
+            ? fileName.slice(0, maxLength) + '...' 
+            : fileName;
+        fileNameDisplay.textContent = `Uploaded File: ${truncatedFileName}`;
+    }
+});
+
+
+    </script>
+
+</body>
+</html>

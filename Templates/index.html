@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Lung Cancer Detection</title>
+
+    <!-- Corrected the path for styles.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Lung Cancer Detection</h1>
+            <ul class="nav-links">
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="prediction">Prediction</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <h1> Lung Cancer Detection Using Deep Learning Ensemble Approach.</h1>
+            <p>Detect lung cancer using our AI-powered prediction system. Get fast and accurate predictions.</p>
+            <section class="overview">
+    <section class="overview">
+    <h2>What is Lung Cancer?</h2>
+    <p>Lung cancer is one of the leading causes of cancer deaths worldwide. Early detection is crucial for effective treatment.</p>
+    <div class="stats">
+      <p><strong>1 in 15</strong> people develop lung cancer</p>
+      <p><strong>50%</strong> increase in survival rate with early detection</p>
+    </div>
+    <div class="symptoms">
+      <h3>Symptoms:</h3>
+      <ul>
+        <li>Coughing</li>
+        <li>Chest pain</li>
+        <li>Shortness of breath</li>
+      </ul>
+    </div>
+  </section>
+            <a href="prediction" class="btn">Get Started</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lung Cancer Detection. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
