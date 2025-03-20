@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Symptoms Form</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    background-image: url('https://max-website20-images.s3.ap-south-1.amazonaws.com/lung_cancer_symptoms_20ed0ddb19.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Ensure everything is stacked vertically */
+    padding: 20px;
+}
+
+/* Navbar Styles */
+header {
+    background-color: #333;
+    padding: 20px 0; /* Increased height for better spacing */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    color: #28a745; /* Success Green */
+    font-weight: bold;
+}
+
+/* Wrapper Styles */
+.wrapper {
+    display: flex; /* Use flexbox to align the form and report side by side */
+    flex-direction: row; /* Align items horizontally */
+    width: 100%;
+    margin-top: 20px; /* Add some margin to ensure there's space below the navbar */
+    justify-content: space-between; /* Space out the containers */
+}
+
+.container {
+    width: 45%; /* Make the container take up 45% of the screen width */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 0; /* Align to the left */
+}
+
+h1 {
+    text-align: center;
+    color: Green;
+}
+
+div.instructions {
+    text-align: center;
+    font-size: 1rem;
+    color: blue;
+    margin-bottom: 20px;
+}
+
+p.instructions ul li {
+    padding: 10px 15px;
+    list-style-type: none;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* New: Add two-column layout for checkboxes */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.button-group {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result report container */
+.report {
+    margin-top: 70px;
+    padding: 15px;
+    align-items: center;
+    border-radius: 5px;
+    width: 45%; /* Set width to 45% */
+    height: 30%;
+    margin-left: 20px;
+    display: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.low-risk {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.medium-risk {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.high-risk {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Full-width container on small screens */
+    }
+
+    .report {
+        width: 80%; /* Increased width for smaller screens */
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .wrapper {
+        flex-direction: column; /* Stack the form and result vertically on small screens */
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Lung Cancer Detection</h1>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="prediction">Detection</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div class="container">
+                <h1>Symptoms For Lung Cancer</h1>
+                <div class="instructions">
+                    <ul>
+                        <li>Choose symptoms according to your condition.</li>
+                        <li>Each symptom has a brief description that will be displayed in your report after submission.</li>
+                    </ul>
+                </div>
+                <form id="symptomsForm">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Persistent Cough"> Persistent Cough
+                        </label>
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Chest Pain"> Chest Pain
+                        </label>
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Weight Loss"> Unexplained Weight Loss
+                        </label>
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Fatigue"> Fatigue
+                        </label>
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Shortness of Breath"> Shortness of Breath
+                        </label>
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Coughing Blood"> Coughing Blood
+                        </label>
+                        <label>
+                            <input type="checkbox" name="symptoms" value="Wheezing"> Wheezing
+                        </label>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" onclick="analyzeSymptoms()">Submit</button>
+                        <button type="button" onclick="showDetailedReport()">Show Report</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="resultMessage" class="report" style="width: 45%;"></div>
+        </div>
+    </main>
+
+    <script>
+        function analyzeSymptoms() {
+            const checkboxes = document.querySelectorAll('input[name="symptoms"]:checked');
+            const resultMessage = document.getElementById('resultMessage');
+
+            if (checkboxes.length === 0) {
+                resultMessage.className = 'report low-risk';
+                resultMessage.textContent = "No symptoms selected. No need to worry.";
+            } else if (checkboxes.length <= 2) {
+                resultMessage.className = 'report medium-risk';
+                resultMessage.innerHTML = "Symptoms indicate medium risk. Take precautions such as quitting smoking, maintaining a healthy diet, and regular checkups.";
+            } else {
+                resultMessage.className = 'report high-risk';
+                resultMessage.innerHTML = "Symptoms indicate high risk. Take the detection test immediately. <button onclick='navigateToDetection()'>Go to Detection Page</button>";
+            }
+
+            resultMessage.style.display = 'block';
+        }
+
+        function showDetailedReport() {
+            const checkboxes = document.querySelectorAll('input[name="symptoms"]:checked');
+            const resultMessage = document.getElementById('resultMessage');
+
+            if (checkboxes.length === 0) {
+                resultMessage.className = 'report low-risk';
+                resultMessage.innerHTML = "<strong>Report:</strong> No symptoms reported. Maintain a healthy lifestyle and stay vigilant.";
+            } else {
+                let detailedReport = "<strong>Detailed Report:</strong><ul>";
+                checkboxes.forEach((checkbox) => {
+                    let description = '';
+                    switch (checkbox.value) {
+                        case 'Persistent Cough':
+                            description = 'May indicate respiratory irritation or potential tumor in airways.';
+                            break;
+                        case 'Chest Pain':
+                            description = 'Could be due to pressure from a tumor or lung infection.';
+                            break;
+                        case 'Weight Loss':
+                            description = 'Often linked to cancerous metabolic changes.';
+                            break;
+                        case 'Fatigue':
+                            description = 'May result from low oxygen levels or cancer-related anemia.';
+                            break;
+                        case 'Shortness of Breath':
+                            description = 'Could indicate blocked airways or fluid buildup around the lungs.';
+                            break;
+                        case 'Coughing Blood':
+                            description = 'Potential sign of bleeding in the lungs due to a tumor.';
+                            break;
+                        case 'Wheezing':
+                            description = 'May suggest narrowing of airways or lung obstruction.';
+                            break;
+                    }
+                    detailedReport += `<li>${checkbox.value}: ${description}</li>`;
+                });
+                detailedReport += "</ul><p>Please consult a healthcare provider for further guidance.</p>";
+                resultMessage.className = 'report high-risk';
+                resultMessage.innerHTML = detailedReport;
+            }
+
+            resultMessage.style.display = 'block';
+        }
+
+        function navigateToDetection() {
+            window.location.href = "/prediction"; 
+        }
+    </script>
+</body>
+</html>

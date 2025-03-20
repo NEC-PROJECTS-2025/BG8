@@ -4,31 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Lung Cancer Detection</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Corrected the path for styles.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
             <h1 class="logo">Lung Cancer Detection</h1>
             <ul class="nav-links">
                 <li><a href="" class="active">Home</a></li>
-                <li><a href="prediction">Prediction</a></li>
+                <li><a href="prediction">Detection</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Main Content -->
     <main>
         <section class="hero">
-            <h1> Lung Cancer Detection Using Deep Learning Ensemble Approach.</h1>
-            <p>Detect lung cancer using our AI-powered prediction system. Get fast and accurate predictions.</p>
+            <h1>Enhanced Lung Cancer Detection Using Deep Learning Ensemble Approach.</h1>
+            <p>Detect lung cancer using our AI-powered system. Get fast and accurate predictions.</p>
             <section class="overview">
     <section class="overview">
     <h2>What is Lung Cancer?</h2>
@@ -37,23 +31,78 @@
       <p><strong>1 in 15</strong> people develop lung cancer</p>
       <p><strong>50%</strong> increase in survival rate with early detection</p>
     </div>
-    <div class="symptoms">
-      <h3>Symptoms:</h3>
-      <ul>
-        <li>Coughing</li>
-        <li>Chest pain</li>
-        <li>Shortness of breath</li>
-      </ul>
-    </div>
+    
   </section>
-            <a href="prediction" class="btn">Get Started</a>
+            <a href="symptoms" class="btn">Get Started</a>
         </section>
     </main>
+<footer>
+    <div class="footer-container">
+        <div class="team-info">
+            <h3>Team Members</h3>
+            <ul>
+                <li>
+                    <strong>Manvitha Ainavolu</strong> - 
+                    <a href="mailto:manvithaainavolu@gmail.com">manvithaainavolu@gmail.com</a>
+                </li>
+                <li>
+                    <strong>Naga Revathi Dokku</strong> - 
+                    <a href="mailto:nagarevathidokku@example.com">nagarevathidokku@example.com</a>
+                </li>
+                <li>
+                    <strong>Prathima Kasula</strong> - 
+                    <a href="mailto:prathimakasula@example.com">prathimakasula@example.com</a>
+                </li>
+            </ul>
+        </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Lung Cancer Detection. All rights reserved.</p>
-    </footer>
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <ul>
+                <li>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/prediction">Prediction</a></li>
+                <li><a href="/symptoms">Symptoms</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:info@lungcancerdetection.com">info@lungcancerdetection.com</a></p>
+            <p>Phone: +91 9876543210</p>
+        </div>
+    </div>
+
+    <!-- Copyright Notice -->
+    <div class="copyright">
+        <p>&copy; 2025 Lung Cancer Detection Project. All rights reserved.</p>
+    </div>
+</footer>
+
 
 </body>
 </html>

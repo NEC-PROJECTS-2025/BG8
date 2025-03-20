@@ -252,11 +252,80 @@ input[type="file"] {
     margin-top: 20px;
 }
 
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
 /* Footer Styles */
 footer {
-   
-    background-color: #333;
-    color: #fff;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-info, .social-media, .quick-links, .contact-info {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+.team-info h3, .social-media h3, .quick-links h3, .contact-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #3498db;
+}
+
+.team-info ul, .social-media ul, .quick-links ul, .contact-info p {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team-info li, .quick-links li {
+    margin-bottom: 10px;
+}
+
+.team-info a, .quick-links a, .contact-info a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.team-info a:hover, .quick-links a:hover, .contact-info a:hover {
+    color: #3498db;
+}
+
+.social-media ul {
+    display: flex;
+    gap: 15px;
+}
+
+.social-media a {
+    color: #ecf0f1;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #3498db;
+}
+
+.copyright {
     text-align: center;
-    padding: 20px 0;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #34495e;
+    font-size: 0.9em;
+    color: #bdc3c7;
 }
